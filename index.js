@@ -104,7 +104,7 @@ http.createServer((req, res) => {
             });
         });
     } else {
-        req.url.replace(/(.\.json)|(index.js)/g, '');
+        req.url.replace(/(.+\.json)|(index.js)/g);
         fs.readFile('./' + req.url, (error, data) => {
             res.end(data);
         });
