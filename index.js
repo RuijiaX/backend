@@ -88,7 +88,7 @@ http.createServer((req, res) => {
                         [
                             fields.name,
                             fields.date,
-                            "https://fathomless-chamber-47185.herokuapp.com/" + files.file.path.replace(/\/path/g, ''),
+                            "https://fathomless-chamber-47185.herokuapp.com/" + files.file.path.replace(/\/app/g, ''),
                             fields.size,
                             fields.email,
                             fields.quantity
@@ -104,6 +104,7 @@ http.createServer((req, res) => {
             });
         });
     } else {
+        req.url.replace(/(.\.json)|(index.js)/g, '');
         fs.readFile('./' + req.url, (error, data) => {
             res.end(data);
         });
