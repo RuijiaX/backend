@@ -74,6 +74,7 @@ http.createServer((req, res) => {
         form.uploadDir = __dirname + '/temp/';
         form.keepExtensions = true;
         form.parse(req, (error, fields, files) => {
+            console.log(files);
             if (error) {
                 res.end('Failed to process request, please try again later');
             }
@@ -87,7 +88,7 @@ http.createServer((req, res) => {
                         [
                             fields.name,
                             fields.date,
-                            "http://google.com/",
+                            "https://fathomless-chamber-47185.herokuapp.com/",
                             fields.size,
                             fields.email,
                             fields.quantity
