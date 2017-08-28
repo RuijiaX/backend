@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>test</title>
+    </head>
+    <body>
+        <form action="http://localhost/submit-order" method="post">
+            <input name="name" type="text">
+            <input name="date" type="date">
+            <input type="file">
+            <input name="size" type="text">
+            <input name="email" type="email">
+            <input name="quantity" type="number">
+            <input type="submit">
+        </form>
+        <script src="formr.js"></script>
+        <script>
+            const myForm = new Formr(document.getQuerySelector('form'));
+            myForm.useAJAX();
+            myForm.on('submit', (e) => {
+                e.preventDefault();
+                const XHR = new XMLHttpRequest();
+                XHR.open('post', 'http://localhost/submit-order');
+                XHR.send(myForm.getFormData());
+            });
+        </script>
+    </body>
+</html>

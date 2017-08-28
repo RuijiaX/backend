@@ -1,4 +1,4 @@
-const fs = require('fs'), google = require('googleapis'), oAuth = require('google-auth-library'),
+const fs = require('fs'), oAuth = require('google-auth-library'),
     readline = require('readline'), SCOPES = ['https://www.googleapis.com/auth/spreadsheets'],
     TOKEN_PATH = __dirname + '\\credentials.json';
 

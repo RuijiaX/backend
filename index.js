@@ -1,5 +1,5 @@
 const formidable = require('formidable'), fs = require('fs'), auth = require(__dirname + '\\google-spreadsheet'),
-    http = require('http'), readline = require('readline'), googleapis = require('googleapis');
+    http = require('http'), googleapis = require('googleapis');
 
 const PRICING = {
     "18x24": {
@@ -74,10 +74,36 @@ http.createServer((req, res) => {
         form.uploadDir = __dirname + '/temp/';
         form.keepExtensions = true;
         form.parse(req, (error, fields, files) => {
-            googleapis.sheets('v4').spreadsheets.values.update()
+            if (error) {
+                res.end('Failed to process request, please try again later');
+            }
+            googleapis.sheets('v4').spreadsheets.values.append({
+                auth: auth,
+                spreadsheetId: '174Dfg4pCnRZjQoJi5kw-pFkAaaBxNwR4g0apOTW34uk',
+                range: 'A1:F1',
+                valueInputOption: 'RAW',
+                resource: {
+                    values: [
+                        [
+                            fields.name,
+                            fields.date,
+                            "http://google.com/",
+                            fields.size,
+                            fields.email,
+                            fields.quantity
+                        ]
+                    ]
+                }
+            }, (error, response) => {
+                if (error) {
+                    res.end(error);
+                    return;
+                }
+                res.end('Updated ' + response.updatedCells + ' cells for order');
+            });
         });
     } else {
-        fs.readFile('./frontend/' + req.url, (error, data) => {
+        fs.readFile('./' + req.url, (error, data) => {
             res.end(data);
         });
     }
