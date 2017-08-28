@@ -1,8 +1,8 @@
 const fs = require('fs'), oAuth = require('google-auth-library'),
     readline = require('readline'), SCOPES = ['https://www.googleapis.com/auth/spreadsheets'],
-    TOKEN_PATH = __dirname + '\\credentials.json';
+    TOKEN_PATH = __dirname + '/credentials.json';
 
-let credentials = JSON.parse(fs.readFileSync(__dirname + '\\client_secret.json')), token = null;
+let credentials = JSON.parse(fs.readFileSync(__dirname + '/client_secret.json')), token = null;
 
 const clientSecret = credentials.installed.client_secret, clientID = credentials.installed.client_id,
     redirectURL = credentials.installed.redirect_uris[0],
