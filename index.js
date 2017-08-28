@@ -88,7 +88,7 @@ http.createServer((req, res) => {
                         [
                             fields.name,
                             fields.date,
-                            "https://fathomless-chamber-47185.herokuapp.com/" + files.file.path,
+                            "https://fathomless-chamber-47185.herokuapp.com/" + files.file.path.replace(/\/path/g, ''),
                             fields.size,
                             fields.email,
                             fields.quantity
