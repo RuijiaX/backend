@@ -1,4 +1,4 @@
-const formidable = require('formidable'), fs = require('fs'), auth = require(__dirname + '\\google-spreadsheet'),
+const formidable = require('formidable'), fs = require('fs'), auth = require(__dirname + '/google-spreadsheet'),
     http = require('http'), googleapis = require('googleapis');
 
 const PRICING = {
