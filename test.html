@@ -16,7 +16,7 @@
         </form>
         <script src="formr.js"></script>
         <script>
-            const myForm = new Formr(document.getQuerySelector('form'));
+            const myForm = new Formr(document.querySelector('form'));
             myForm.useAJAX();
             myForm.on('submit', (e) => {
                 e.preventDefault();
