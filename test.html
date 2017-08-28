@@ -21,7 +21,7 @@
             myForm.on('submit', (e) => {
                 e.preventDefault();
                 const XHR = new XMLHttpRequest();
-                XHR.open('post', 'http://localhost/submit-order');
+                XHR.open('post', 'https://fathomless-chamber-47185.herokuapp.com/submit-order');
                 XHR.send(myForm.getFormData());
             });
         </script>
