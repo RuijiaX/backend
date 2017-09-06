@@ -35,7 +35,7 @@ router.post('*', function(req, res) {
                             fields.name,
                             fields.email,
                             fields.phone,
-                            'https://inked-out.herokuapp.com/' + files.file.path,
+                            'https://inked-out.herokuapp.com/' + files.file.path.replace(/public/, ''),
                             fields.date,
                             fields.size,
                             fields.quantity,
@@ -48,7 +48,7 @@ router.post('*', function(req, res) {
                 if (error) {
                     res.send('The Sheets API returned an error: ' + error);
                 } else {
-                    console.log(response);
+                    res.send('Order sent to Sheets successfully');
                 }
             });
         }
