@@ -40,7 +40,7 @@ router.post('*', function(req, res) {
                             fields.size,
                             fields.quantity,
                             fields.paper,
-                            fields.grommets
+                            fields.grommets === 'on' ? 'Yes' : 'No'
                         ]
                     ]
                 }
