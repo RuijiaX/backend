@@ -69,6 +69,7 @@ const PRICING = {
 };
 
 http.createServer((req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     if (req.url === '/submit-order' && req.method.toUpperCase() === 'POST') {
         const form = formidable.IncomingForm();
         form.uploadDir = __dirname + '/temp/';
@@ -88,7 +89,7 @@ http.createServer((req, res) => {
                         [
                             fields.name,
                             fields.date,
-                            "https://fathomless-chamber-47185.herokuapp.com/" + files.file.path.replace(/\/app/g, ''),
+                            "https://inked-out.herokuapp.com/" + files.file.path.replace(/\/app/g, ''),
                             fields.size,
                             fields.email,
                             fields.quantity
@@ -100,7 +101,7 @@ http.createServer((req, res) => {
                     res.end(error);
                     return;
                 }
-                res.end('Updated ' + response.updatedCells + ' cells for order');
+                res.end('200: Order recorded in Google Sheets');
             });
         });
     } else {
