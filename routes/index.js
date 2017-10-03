@@ -28,7 +28,7 @@ router.post('*', function(req, res) {
                 auth: router.auth,
                 valueInputOption: 'USER_ENTERED',
                 spreadsheetId: '174Dfg4pCnRZjQoJi5kw-pFkAaaBxNwR4g0apOTW34uk',
-                range: 'A1:Z1',
+                range: 'A1:I1',
                 resource: {
                     values: [
                         [
