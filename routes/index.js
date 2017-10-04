@@ -54,7 +54,7 @@ router.post('*', function(req, res) {
                                 fields.name,
                                 fields.email,
                                 fields.phone,
-                                'https://inked-out.herokuapp.com/' + files.file.path.replace(/public/, ''),
+                                files.file.path.split('/').pop(),
                                 fields.date,
                                 fields.size,
                                 fields.quantity,
