@@ -4,7 +4,7 @@ const express = require('express'), app = express(), index = require('./routes/i
         credentials.installed.client_secret, credentials.installed.redirect_uris[0]), readline = require('readline');
 
 try {
-    oauth2Client.credentials = require('./credentials.json.bak');
+    oauth2Client.credentials = require('./credentials.json');
     index.auth = oauth2Client;
 } catch (e) {
     const authURL = oauth2Client.generateAuthUrl({
@@ -19,7 +19,7 @@ try {
                 console.error(error);
             } else {
                 oauth2Client.credentials = token;
-                require('fs').writeFileSync('./credentials.json.bak', JSON.stringify(token));
+                require('fs').writeFileSync('../credentials.json', JSON.stringify(token));
                 index.auth = oauth2Client;
             }
         });

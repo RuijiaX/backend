@@ -41,7 +41,7 @@ router.post('*', function(req, res) {
             }, (error, file) => {
                 if (error) {
                     res.send('Failed to upload your order. Please try again');
-                    return;g
+                    return;
                 }
                 google.sheets('v4').spreadsheets.values.append({
                     auth: router.auth,
