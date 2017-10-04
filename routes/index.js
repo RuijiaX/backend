@@ -31,7 +31,7 @@ router.post('*', function(req, res) {
                 auth: router.auth,
                 resource: {
                     name: files.file.path.split('/').pop(),
-                    parents: folderToUploadTo
+                    parents: [folderToUploadTo]
                 },
                 media: {
                     mimeType: 'image/' + files.file.path.split('.').pop(),
