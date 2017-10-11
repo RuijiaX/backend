@@ -9,7 +9,7 @@ try {
 } catch (e) {
     const authURL = oauth2Client.generateAuthUrl({
         access_type: 'offline',
-        scope: 'https://www.googleapis.com/auth/spreadsheets'
+        scope: 'https://www.googleapis.com/auth/drive'
     });
     console.log('Authorize this app by visiting the following URL: ' + authURL);
     const readlineInterface = readline.createInterface(process.stdin, process.stdout);
@@ -19,7 +19,7 @@ try {
                 console.error(error);
             } else {
                 oauth2Client.credentials = token;
-                require('fs').writeFileSync('./credentials.json', JSON.stringify(token));
+                require('fs').writeFileSync('../credentials.json', JSON.stringify(token));
                 index.auth = oauth2Client;
             }
         });
