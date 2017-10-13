@@ -73,6 +73,7 @@ router.post('*/price', function(req, res) {
                 // e.g. this.bitmap.data[idx] = 0; // removes red from this pixel 
             });
             percentInk=count/area;
+            res.send(percentInk);
         });
     });
 });
