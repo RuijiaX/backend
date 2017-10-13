@@ -45,7 +45,7 @@ function rgb2cmyk (r,g,b) {
      return [computedC,computedM,computedY,computedK];
 }
 
-router.post('*/price', function(req, res) {
+router.post('/price', function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     const incomingForm = new formidable.IncomingForm();
     incomingForm.keepExtensions = true;
