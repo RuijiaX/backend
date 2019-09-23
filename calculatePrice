@@ -1,0 +1,114 @@
+import java.util.Scanner;
+
+public class calculatePrice {
+	public static void main (String[] args)
+	{
+	
+		/*Scanner scan = new Scanner (System.in);
+		System.out.println("Please enter the percentage of white: ");
+		percentage = scan.nextDouble();*/
+		
+		//import scanner and actual number after finish calculation
+		//http://www.coolphptools.com/color_extract#demo
+		
+		//ask percentage
+		Scanner scan = new Scanner (System.in);
+		System.out.print("Please enter the percentage of white: ");
+		double percentage = scan.nextDouble();
+		
+		//ask dimension in inches
+		System.out.print("Please enter the length in inches: ");
+		double length = scan.nextDouble();
+		
+		System.out.print("Please enter the width in inches: ");
+		double width = scan.nextDouble();
+		
+
+		//System.out.println(percentage+length+width);
+			
+
+		//basic pricing for paper per inch square
+		double plain = 0;
+		double bond = 0.0004303240741;
+		double vinyl = 0.003875;
+		double photo = 0.0024305556;
+		double canvas = 0;
+		
+		//basic pricing for ink per ml
+		//double ink = 0.4347096774;
+		//0.337 ml ink is used for one inch square
+		//double inkUnitPrice = ink * 0.337;
+		//double ink = 3;
+		
+		double inkUnitPrice = 0.0079730716/775.0*336.9;
+		
+		
+		//paper price + ink price
+		double paperPrice = 0;
+		double inkPrice = 0;
+		double totalCost = paperPrice + inkPrice;
+		
+		//ask paper kind
+		System.out.println("Please enter the corresponding number to indicate paper type");
+		System.out.println("\t 1 for Plain Paper" + "\n" + "\t 2 for Bond Paper" + "\n" + "\t 3 for Vinyl Paper" + "\n" + "\t 4 for Photo Paper" + "\n" + "\t 5 for Canvas Paper" + "\n");
+		System.out.print("Paper type: ");
+		int paperKind = scan.nextInt();
+		
+		//System.out.println(paperKind);
+		
+		if (paperKind == 1)
+		{
+			paperPrice = paperPrice + plain*length*width;
+		}
+		else if (paperKind == 2)
+		{
+			paperPrice = paperPrice + bond*length*width;
+		}
+		else if (paperKind == 3)
+		{
+			paperPrice = paperPrice + vinyl*length*width;
+		}
+		else if (paperKind == 4)
+		{
+			paperPrice = paperPrice + photo*length*width;
+		}
+		else if (paperKind == 5)
+		{
+			paperPrice = paperPrice + canvas*length*width;
+		}
+		
+		//calculate price for ink
+		inkPrice = (1.0-percentage)*(length*width)*inkUnitPrice;
+		
+		
+		//print head and service cost
+		//double printhead = 10.0;
+		double serviceCost = 5.0;
+		
+		//Quantity
+		System.out.print("Quantity: ");
+		int quantity = scan.nextInt();
+		
+		//Grommet
+		double grommetPrice = 10.90/24.0;
+		System.out.print("Number of Grommet: ");
+		int grommetNumber = scan.nextInt();
+		
+		
+		//total cost
+		System.out.print("The price for this purchase would be: ");
+		
+		totalCost = (paperPrice + inkPrice) * quantity + (grommetPrice * grommetNumber);
+		
+		double cost = Math.round(totalCost * 100.0)/100.0;
+		cost = cost * 2 + serviceCost;
+		
+		cost = Math.round(cost*100.0)/100.0;
+			
+		
+		System.out.print(cost);
+		
+			
+		
+	}
+}
