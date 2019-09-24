@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello</title>
+  	</head>
+	<body>
+		<p>Calculate the price for printing:</p>
+		<a href="http://www.coolphptools.com/color_extract#demo">Scan the image</a>
+
+		<p>
+  			<applet code="Logo.class" archive="Logo.jar" width="740" height="400"></applet>
+ 		</p>
+		<p>
+  			<object codetype="application/java" classid="java:Logo.class" archive="Logo.jar" width="740" height="400"></object>
+ </p>
+	</body>
+</html>
